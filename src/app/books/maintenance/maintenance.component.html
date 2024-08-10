@@ -1,0 +1,75 @@
+<mat-card>
+    <mat-card-header>
+        <h1>Add New Category</h1>
+    </mat-card-header>
+    <mat-card-content [formGroup]="newCategoryForm">
+        <mat-form-field color="accent" class="add-category">
+            <mat-label>Category</mat-label>
+            <input type="text" matInput formControlName="category">
+        </mat-form-field>
+
+        <mat-form-field color="accent" class="add-category">
+            <mat-label>SubCategory</mat-label>
+            <input type="text" matInput formControlName="subCategory">
+        </mat-form-field>
+
+        <button mat-stroked-button color="accent" [disabled]="newCategoryForm.invalid" (click)="addNewCategory()">
+            <span>Add</span>
+        </button>
+    </mat-card-content>
+</mat-card>
+
+<mat-card>
+    <mat-card-header>
+        <h1>Add New Book</h1>
+    </mat-card-header>
+
+    <mat-card-content [formGroup]="newBookForm">
+
+        <mat-form-field color="accent" class="book-title">
+            <mat-label>Book Title</mat-label>
+            <input type="text" matInput formControlName="title">
+        </mat-form-field>
+
+        <mat-form-field color="accent" class="book-author">
+            <mat-label>Book Author</mat-label>
+            <input type="text" matInput formControlName="author">
+        </mat-form-field>
+
+        <mat-form-field color="accent" class="book-price">
+            <mat-label>Book Price</mat-label>
+            <input type="text" matInput formControlName="price">
+        </mat-form-field>
+
+        <mat-form-field color="accent" class="book-category">
+            <mat-label>Category</mat-label>
+            <mat-select formControlName="category" #categorySelect>
+                @for (item of categoryOptions; track categoryOptions) {
+                <mat-option [value]="item.value">{{item.displayName | titlecase}}</mat-option>
+                }
+            </mat-select>
+        </mat-form-field>
+
+        <button mat-stroked-button color="accent" [disabled]="newBookForm.invalid || categorySelect.empty"
+            (click)="addNewBook()">
+            <span>Add</span>
+        </button>
+    </mat-card-content>
+</mat-card>
+
+<mat-card>
+    <mat-card-header>
+        <h1>Delete Existing Book</h1>
+    </mat-card-header>
+
+    <mat-card-content>
+        <mat-form-field color="accent">
+            <mat-label>Book ID</mat-label>
+            <input type="text" matInput [formControl]="deleteForm">
+        </mat-form-field>
+
+        <button mat-stroked-button color="accent" [disabled]="deleteForm.invalid" (click)="deleteExistingBook()">
+            <span>Delete</span>
+        </button>
+    </mat-card-content>
+</mat-card>

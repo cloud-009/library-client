@@ -1,0 +1,84 @@
+<div class="register-form">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Create Account</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+            <mat-grid-list cols="2" rowHeight="100px" gutterSize="10px" [formGroup]="registerForm">
+                <mat-grid-tile>
+                    <mat-form-field>
+                        <mat-label>First Name</mat-label>
+                        <input matInput formControlName="firstName">
+                        <mat-error>Field is required!</mat-error>
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-form-field>
+                        <mat-label>Last Name</mat-label>
+                        <input matInput formControlName="lastName">
+                        <mat-error>Field is required!</mat-error>
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile colspan="2">
+                    <mat-form-field>
+                        <mat-label>Email</mat-label>
+                        <input matInput formControlName="email">
+                        <mat-error>Field is required!</mat-error>
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile colspan="2">
+                    <mat-form-field>
+                        <mat-label>Mobile Number</mat-label>
+                        <input matInput formControlName="mobile">
+                        <mat-error>Field is required!</mat-error>
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-form-field>
+                        <mat-label>Password</mat-label>
+                        <input [type]="hidePassword ? 'password' : 'text'" matInput formControlName="password">
+                        <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword">
+                            <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility_on'}}</mat-icon>
+                        </button>
+                        <mat-error>Field is required!</mat-error>
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-form-field>
+                        <mat-label>Repeat Password</mat-label>
+                        <input [type]="hideRepeatPassword ? 'password' : 'text'" matInput
+                            formControlName="repeatPassword">
+                        <button mat-icon-button matSuffix (click)="hideRepeatPassword = !hideRepeatPassword">
+                            <mat-icon>{{hideRepeatPassword ? 'visibility_off' : 'visibility_on'}}</mat-icon>
+                        </button>
+                        <mat-error>Field is required!</mat-error>
+                    </mat-form-field>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </mat-card-content>
+    </mat-card>
+    <mat-card-actions>
+        <button mat-raised-button color="accent" [disabled]="registerForm.invalid" (click)="registerUser()">Register</button>
+    </mat-card-actions>
+    <mat-card-actions>
+        <h4>Already have an account?</h4>
+        <button mat-stroked-button color="accent" routerLink="/login">Login</button>
+    </mat-card-actions>
+</div>
+<div class="library-info">
+    <h1>Information</h1>
+    <mat-list>
+        <mat-list-item>
+            <p>
+                Once you create account, approval request will be sent to admin.
+                If that is approved, your account will be created.
+            </p>
+        </mat-list-item>
+        <mat-list-item>
+            <p>
+                You can have maximum 3 books ordered that have not been returned.
+            </p>
+        </mat-list-item>
+    </mat-list>
+</div>

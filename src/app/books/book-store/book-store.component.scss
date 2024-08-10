@@ -1,0 +1,37 @@
+@import "../../../theme.scss";
+
+:host {
+    display: block;
+    padding: 1rem 0;
+}
+
+mat-form-field {
+    width: 500px;
+    margin: 0 auto;
+    display: block;
+}
+
+mat-accordion {
+    mat-panel-title {
+        text-transform: capitalize;
+        font-size: 1.2rem;
+        letter-spacing: 2px;
+        font-weight: 500;
+        color: $dark-accent-A200;
+    }
+
+    mat-panel-description {
+        text-transform: capitalize;
+        font-style: italic;
+        letter-spacing: 1px;
+    }
+
+    table {
+        width: 100%;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+
+        .mat-mdc-header-cell {
+            font-style: italic;
+        }
+    }
+}

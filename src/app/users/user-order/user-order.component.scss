@@ -1,0 +1,14 @@
+mat-card {
+    width: max-content;
+    margin: 2rem 0;
+
+    h2 {
+        font-size: 1rem;
+    }
+}
+
+table {
+    .mat-mdc-header-cell {
+        font-style: italic;
+    }
+}

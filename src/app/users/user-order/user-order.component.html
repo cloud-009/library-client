@@ -1,0 +1,38 @@
+<section class="pending">
+    <mat-card>
+        <mat-card-content>
+            <h2>Pending Returns {{pendingReturns.length}}</h2>
+        </mat-card-content>
+    </mat-card>
+
+    @if (pendingReturns.length > 0) {
+    <app-table [columns]="columnsForPendingReturns" [dataSource]="pendingReturns"></app-table>
+    }
+    @else {
+    <mat-card>
+        <mat-card-content>
+            <h2>No orders placed yet!!</h2>
+        </mat-card-content>
+    </mat-card>
+    }
+
+</section>
+<section class="returned">
+    <mat-card>
+        <mat-card-content>
+            <h2>Returned Orders {{completedReturns.length}}</h2>
+        </mat-card-content>
+    </mat-card>
+
+
+    @if (completedReturns.length > 0) {
+    <app-table [columns]="columnsForCompletedReturns" [dataSource]="completedReturns"></app-table>
+    }
+    @else {
+    <mat-card>
+        <mat-card-content>
+            <h2>No returns required!</h2>
+        </mat-card-content>
+    </mat-card>
+    }
+</section>

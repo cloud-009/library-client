@@ -1,0 +1,37 @@
+mat-card {
+    width: max-content;
+
+    mat-form-field {
+        width: 48%;
+        &:first-child{
+            margin-right: 1rem;
+        }
+    }
+
+    .fine {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+        gap: 10px;
+
+        button {
+            width: 50%;
+        }
+
+        span {
+            flex: 1 1 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1rem;
+            font-weight: bold;
+            font-style: italic;
+        }
+    }
+
+    button {
+        width: 100%;
+        padding: 1.5rem;
+        font-size: 1rem;
+    }
+}
